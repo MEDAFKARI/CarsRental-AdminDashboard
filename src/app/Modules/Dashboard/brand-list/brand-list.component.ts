@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Brand } from 'src/app/Core/Models/brand';
+import { Router } from '@angular/router';
+import { Brand } from 'src/app/Core/Models/Brand';
 import { BrandService } from 'src/app/Core/Services/brand.service';
 
 @Component({
@@ -9,9 +10,12 @@ import { BrandService } from 'src/app/Core/Services/brand.service';
 })
 export class BrandListComponent implements OnInit {
 
+
   brands:Array<Brand>=[];
 
-  constructor(private brandService:BrandService){}
+  constructor(private brandService:BrandService,
+              private router:Router
+  ){}
 
   ngOnInit(): void {
     this.LoadBrand();
@@ -27,6 +31,22 @@ export class BrandListComponent implements OnInit {
         console.log(err);
       }
     })
+  }
+
+
+  HandleDelete(brandId: number) {
+    this.brandService.deleteBrand(brandId).subscribe({
+      next:data=>{
+        console.log(data);
+        this.LoadBrand();
+      },
+      error:err=>{
+        console.log(err);
+      }
+    });
+  }
+  HandleEdit(brandId: number) {
+    this.router.navigateByUrl(`/updateBrand/${brandId}`);
   }
     
 

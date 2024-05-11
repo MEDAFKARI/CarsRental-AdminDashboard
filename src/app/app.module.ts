@@ -20,6 +20,11 @@ import { LoginComponent } from './Modules/Auth/login/login.component';
 import { DashboardComponent } from './Modules/Dashboard/dashboard.component';
 import { BrandListComponent } from './Modules/Dashboard/brand-list/brand-list.component';
 import { NewBrandComponent } from './Modules/Dashboard/new-brand/new-brand.component';
+import { CityListComponent } from './Modules/Dashboard/city-list/city-list.component';
+import { NewCityComponent } from './Modules/Dashboard/new-city/new-city.component';
+import { UpdateCityComponent } from './Modules/Dashboard/update-city/update-city.component';
+import { UpdateBrandComponent } from './Modules/Dashboard/update-brand/update-brand.component';
+import { StoreListComponent } from './Modules/Dashboard/store-list/store-list.component';
 
 registerLocaleData(en);
 
@@ -32,7 +37,12 @@ registerLocaleData(en);
     LoginComponent,
     DashboardComponent,
     BrandListComponent,
-    NewBrandComponent
+    NewBrandComponent,
+    CityListComponent,
+    NewCityComponent,
+    UpdateCityComponent,
+    UpdateBrandComponent,
+    StoreListComponent
   ],
   imports: [
     BrowserModule,
