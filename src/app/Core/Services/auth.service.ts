@@ -24,12 +24,30 @@ export class AuthService {
 
   logUser(role:string,token:string){
     localStorage.setItem('token',token);
+    localStorage.setItem('role',role);
       this.appstate.setUserState({
           Role:role,
           isAuthenticated:true
       })
       this.router.navigateByUrl(`/`);
   }
+
+
+      getToken(): string | null{
+        let token = localStorage.getItem( 'token' );
+
+      return token;
+    }
+
+    getRole(): string | null{
+      let role = localStorage.getItem( 'role' );
+      console.log(role);
+      if( role !=null){
+          role = role;
+    }
+    return role;
+    }
+
 
 
 
