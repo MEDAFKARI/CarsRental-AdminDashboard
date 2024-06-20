@@ -1,76 +1,78 @@
-<nz-layout class="app-layout" >
-    <nz-sider class="menu-sidebar" 
-              nzCollapsible
-              nzWidth="256px"
-              nzBreakpoint="md"
-              [(nzCollapsed)]="isCollapsed"
-              [nzTrigger]="null">
-              <div class="flex items-center m-5 justify-center mx-auto">
-                <a target="">
-                    <img src="\assets\images\Logo\output-onlinepngtoolsWhite.png" alt="logo" style="width:100px; height: auto;">
-                </a>
-            </div>
-s            
-      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
-          <ul>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/dashboard">All Users List</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/storeowner">Store Owner List</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/normaluser">Normal User List</a>
-            </li>
-          </ul>
-        </li>
-       
-        <li nz-submenu nzOpen nzTitle="Store gestion" nzIcon="appstore">
-          <ul>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/stores">Store List</a>
-            </li>
-          </ul>
-        </li>
-        <li nz-submenu nzOpen nzTitle="City gestion" nzIcon="form">
-          <ul>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/city">City List</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/addCity">Add City</a>
-            </li>
-          </ul>
-        </li>
-        <li nz-submenu nzOpen nzTitle="Brand gestion" nzIcon="form">
-          <ul>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/brands">Brand List</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/addBrand">Add Brand</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nz-sider>
-    <nz-layout style="background: white !important;">
-      <nz-header>
-        <div class="app-header" style="background-color: white;">
-          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-              <span class="trigger"
-                 nz-icon
-                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-              ></span>
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar" 
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="flex items-center m-5 justify-center mx-auto">
+      <a target="">
+        <img src="\assets\images\Logo\output-onlinepngtoolsWhite.png" alt="logo" style="width:100px; height: auto;">
+      </a>
+    </div>
+
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/dashboard">All Users List</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/storeowner">Store Owner List</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/normaluser">Normal User List</a>
+          </li>
+        </ul>
+      </li>
+
+      <li nz-submenu nzOpen nzTitle="Store gestion" nzIcon="appstore">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/stores">Store List</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="City gestion" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/city">City List</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/addCity">Add City</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Brand gestion" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/brands">Brand List</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/addBrand">Add Brand</a>
+          </li>
+        </ul>
+      </li>
+
+      <button (click)="logout()" nz-submenu   nzTitle="Logout" nzIcon="logout">
+      </button>
+    </ul>
+  </nz-sider>
+  <nz-layout style="background: white !important;">
+    <nz-header>
+      <div class="app-header" style="background-color: white; display: flex; justify-content: space-between; align-items: center;">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <span class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'">
           </span>
-        </div>
-      </nz-header>
-      <nz-content>
-        <div class="" >
-          <router-outlet></router-outlet>
-        </div>
-      </nz-content>
-    </nz-layout>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
   </nz-layout>
-  
+</nz-layout>

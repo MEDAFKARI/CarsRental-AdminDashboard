@@ -18,7 +18,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     try { 
-     if(this.authService.getToken()){
+      let token = this.authService.getToken()
+      if(token && this.authService.isTokenExpired(token) ){
        console.log(this.authService.getRole());
        this.appstate.setUserState({
         Role:this.authService.getRole(),
@@ -26,6 +27,15 @@ export class AppComponent implements OnInit {
     })
         this.router.navigateByUrl(`/`);
      }
+     else{
+      localStorage.clear();
+      this.appstate.setUserState({
+        Role: '',
+        Username:'',
+        isAuthenticated:false,
+      })
+      this.router.navigateByUrl(`/login`);
+    }
            
      } catch (error) {
        console.error("An error occurred while initializing the app:", error);

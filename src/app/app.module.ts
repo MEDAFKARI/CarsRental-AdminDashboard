@@ -7,7 +7,7 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { IconsProviderModule } from './icons-provider.module';
@@ -25,6 +25,7 @@ import { NewCityComponent } from './Modules/Dashboard/new-city/new-city.componen
 import { UpdateCityComponent } from './Modules/Dashboard/update-city/update-city.component';
 import { UpdateBrandComponent } from './Modules/Dashboard/update-brand/update-brand.component';
 import { StoreListComponent } from './Modules/Dashboard/store-list/store-list.component';
+import { AuthInterceptor } from './Core/iterceptores/auth.interceptor';
 
 registerLocaleData(en);
 
@@ -58,7 +59,8 @@ registerLocaleData(en);
     ReactiveFormsModule,
   ],
   providers: [
-    { provide: NZ_I18N, useValue: en_US }
+    { provide: NZ_I18N, useValue: en_US },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

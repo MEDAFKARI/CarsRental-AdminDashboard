@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserserviceService } from 'src/app/Core/Services/userservice.service';
 
 @Component({
@@ -12,7 +13,9 @@ export class NormalUserListComponent implements OnInit {
   users:any =[]
 
 
-  constructor(private userService: UserserviceService){}
+  constructor(private userService: UserserviceService,
+              private router:Router
+  ){}
 
 
   ngOnInit(): void {
@@ -34,7 +37,15 @@ export class NormalUserListComponent implements OnInit {
    console.log(id);
     }
     handleMakeStoreOwner(id:string) {
-    console.log(id);
+    this.userService.MakeStoreOwner(id).subscribe({
+      next:data=>{
+        this.router.navigateByUrl('/storeowner');
+      },
+      error:err=>{
+        console.log(err);
+      }
+    }
+    )
     }
     
 

@@ -27,4 +27,9 @@ export class UserserviceService {
   }
 
 
+  MakeStoreOwner(userId:string):Observable<any> {
+    return this.http.put(`${API_URL}/makeStoreOwner/${userId}`,userId);
+  }
+
+
 }
